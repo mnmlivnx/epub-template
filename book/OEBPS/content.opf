@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <metadata xmlns:opf="http://www.idpf.org/2007/opf" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <dc:identifier id="bookid" opf:scheme="ISBN">urn:isbn:[ISBN]</dc:identifier>
+    <!-- 
+    <dc:identifier id="bookid" opf:scheme="URI">[Site URL]</dc:identifier>
+    <dc:source>[SOURCE URL]</dc:source>
+    -->
+    <dc:title>Title</dc:title>
+    <dc:rights>Copyright © [YEAR] [COPYRIGHT HOLDER]. All rights reserved.</dc:rights>
+    <dc:subject>[LIST / OF / SUBJECTS]</dc:subject>
+    <dc:subject>[LIST / OF / SUBJECTS]</dc:subject>
+    <dc:creator opf:file-as="[LASTNAME, NAME]" opf:role="aut">[NAME LASTNAME]</dc:creator>
+    <!-- List of contributors / See: MARC Code List for Relators: http://www.loc.gov/marc/relators/relaterm.html -->    
+    <dc:contributor opf:file-as="[LASTNAME, NAME]" opf:role="edt">[NAME LASTNAME]</dc:contributor>
+    <dc:contributor opf:file-as="[LASTNAME, NAME]" opf:role="cov">[NAME LASTNAME]</dc:contributor>
+    <dc:publisher>[PUBLISHER NAME]</dc:publisher>
+    <dc:date opf:event="publication">2025-01-01</dc:date>
+    <dc:language>en</dc:language>
+    <!-- UUID generator: https://www.uuidgenerator.net/ -->
+    <dc:identifier opf:scheme="UUID">urn:uuid:[UUID]</dc:identifier>
+    <meta name="cover" content="[COVER_NAME].jpg" />
+  </metadata>
+
+  <!-- MANIFEST (mandatory)
+       List of ALL the resources of the book (XHTML, CSS, images,…).
+       The order of item elements in the manifest is NOT significant.
+       http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.3 
+
+  -->
+  <manifest>
+    <item href="images/cover.jpg" id="cover.jpg" media-type="image/jpeg" />
+    <item href="text/cover.xhtml" id="cover" media-type="application/xhtml+xml" />
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
+    <item href="css/style.css" id="css" media-type="text/css" />
+    <item href="text/frontmatter.xhtml" id="frontmatter" media-type="application/xhtml+xml" />
+    <item href="text/dedication.xhtml" id="dedication" media-type="application/xhtml+xml" />
+    <item href="text/toc.xhtml" id="toc" media-type="application/xhtml+xml" />
+    <item href="text/foreword.xhtml" id="foreword" media-type="application/xhtml+xml" />
+    <item href="text/introduction.xhtml" id="introduction" media-type="application/xhtml+xml" />
+    <item href="text/chapter01.xhtml" id="chapter-1" media-type="application/xhtml+xml" />
+    <item href="text/chapter02.xhtml" id="chapter-2" media-type="application/xhtml+xml" />
+    <item href="text/chapter03.xhtml" id="chapter-3" media-type="application/xhtml+xml" />
+    <item href="text/endnotes.xhtml" id="endnotes" media-type="application/xhtml+xml" />
+    <item href="text/acknowledgements.xhtml" id="acknowledgements" media-type="application/xhtml+xml" />
+    <item href="images/image-01.jpg" id="image-01" media-type="image/jpeg" />
+    <item href="images/image-02.png" id="image-02" media-type="image/png" />
+  </manifest>
+
+  <!-- SPINE (mandatory)
+       The spine element defines the default reading order of the content. It 
+       doesn't list every file in the manifest, just the reading order.
+       The value of the idref tag in the spine has to match the ID tag for that 
+       entry in the manifest.
+
+       For example, if you have the following reference in your manifest:
+
+          <item id="chapter-1" href="chapter01.xhtml" media-type="application/xhtml+xml" />
+
+       your spine entry would be:
+
+          <itemref idref="chapter-1" />
+
+       http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.4
+
+       -->
+  <spine toc="ncx">
+    <itemref idref="cover" />
+    <itemref idref="frontmatter" />
+    <itemref idref="toc" />
+    <itemref idref="foreword" />
+    <itemref idref="dedication" />
+    <itemref idref="introduction" />
+    <itemref idref="chapter-1" />
+    <itemref idref="chapter-2" />
+    <itemref idref="chapter-3" />
+    <itemref idref="endnotes" />
+    <itemref idref="acknowledgements" />
+  </spine>
+
+  <!-- GUIDE (optional, recommended by Apple)
+        The guide lets you specify the role of the book's files.
+        Available tags: cover, title-page, toc, index, glossary, 
+        acknowledgements, bibliography, colophon, copyright-page, dedication, 
+        epigraph, foreword, loi (list of illustrations), lot (list of tables), 
+        notes, preface, and text.
+        http://idpf.org/epub/20/spec/OPF_2.0.1_draft.htm#Section2.6
+
+       -->
+  <guide>
+    <reference href="text/cover.xhtml" title="Cover" type="cover" />
+    <reference href="text/toc.xhtml" title="Table of Contents" type="toc" />
+    <reference href="text/frontmatter.xhtml" type="copyright-page" />
+    <reference href="text/foreword.xhtml" type="foreword" />
+    <reference href="text/dedication.xhtml" type="dedication" />
+    <reference href="text/introduction.xhtml" type="text" />
+    <reference href="text/chapter01.xhtml" type="text" />
+    <reference href="text/chapter02.xhtml" type="text" />
+    <reference href="text/chapter03.xhtml" type="text" />
+    <reference href="text/endnotes.xhtml" type="notes" />
+    <reference href="text/acknowledgements.xhtml" type="acknowledgements" />
+  </guide>
+
+</package>
