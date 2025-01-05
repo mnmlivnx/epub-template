@@ -39,15 +39,15 @@
     <item href="fonts/devanagari-bold.woff2" id="devanagari-bold" media-type="font/woff2" />
     <item href="text/cover.xhtml" id="cover" media-type="application/xhtml+xml" />
     <item href="text/frontmatter.xhtml" id="frontmatter" media-type="application/xhtml+xml" />
-    <item href="text/dedication.xhtml" id="dedication" media-type="application/xhtml+xml" />
     <item href="text/toc.xhtml" id="toc" media-type="application/xhtml+xml" />
+    <item href="text/dedication.xhtml" id="dedication" media-type="application/xhtml+xml" />    
+    <item href="text/acknowledgements.xhtml" id="acknowledgements" media-type="application/xhtml+xml" />
     <item href="text/foreword.xhtml" id="foreword" media-type="application/xhtml+xml" />
     <item href="text/introduction.xhtml" id="introduction" media-type="application/xhtml+xml" />
     <item href="text/chapter01.xhtml" id="chapter-1" media-type="application/xhtml+xml" />
     <item href="text/chapter02.xhtml" id="chapter-2" media-type="application/xhtml+xml" />
     <item href="text/chapter03.xhtml" id="chapter-3" media-type="application/xhtml+xml" />
-    <item href="text/endnotes.xhtml" id="endnotes" media-type="application/xhtml+xml" />
-    <item href="text/acknowledgements.xhtml" id="acknowledgements" media-type="application/xhtml+xml" />
+    <item href="text/endnotes.xhtml" id="endnotes" media-type="application/xhtml+xml" />    
     <item href="images/cover.jpg" id="coverimage" media-type="image/jpeg" />
   </manifest>
 
@@ -74,12 +74,12 @@
     <itemref idref="toc" />
     <itemref idref="foreword" />
     <itemref idref="dedication" />
+    <itemref idref="acknowledgements" />
     <itemref idref="introduction" />
     <itemref idref="chapter-1" />
     <itemref idref="chapter-2" />
     <itemref idref="chapter-3" />
-    <itemref idref="endnotes" />
-    <itemref idref="acknowledgements" />
+    <itemref idref="endnotes" />    
   </spine>
 
   <!-- GUIDE (optional, recommended by Apple)
@@ -97,12 +97,12 @@
     <reference href="text/frontmatter.xhtml" type="copyright-page" />
     <reference href="text/foreword.xhtml" type="foreword" />
     <reference href="text/dedication.xhtml" type="dedication" />
+    <reference href="text/acknowledgements.xhtml" type="acknowledgements" />
     <reference href="text/introduction.xhtml" type="text" />
     <reference href="text/chapter01.xhtml" type="text" />
     <reference href="text/chapter02.xhtml" type="text" />
     <reference href="text/chapter03.xhtml" type="text" />
-    <reference href="text/endnotes.xhtml" type="notes" />
-    <reference href="text/acknowledgements.xhtml" type="acknowledgements" />
+    <reference href="text/endnotes.xhtml" type="notes" />    
   </guide>
 
 </package>
