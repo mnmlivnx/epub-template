@@ -1,0 +1,390 @@
+@namespace url(http://www.w3.org/1999/xhtml);
+@namespace epub url(http://www.idpf.org/2007/ops);
+@namespace m url(http://www.w3.org/1998/Math/MathML/);
+@namespace svg url(http://www.w3.org/2000/svg);
+
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+address,
+p,
+hr,
+pre,
+blockquote,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+figure,
+figcaption,
+div,
+table,
+caption,
+form,
+fieldset {
+  margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+@font-face {
+  font-family: 'Latin';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/latin-regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Latin';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/latin-bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Latin';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/latin-italic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Latin';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/latin-bolditalic.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Devanagari';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/devanagari-regular.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Devanagari';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../fonts/devanagari-bold.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('../fonts/inconsolata.woff2') format('woff2') tech(variations),
+    url('../fonts/inconsolata.woff2') format('woff2-variations');
+  font-weight: 1 1000;
+  font-stretch: 50% 200%;
+  font-style: normal;
+  font-display: fallback;
+  size-adjust: 105%;
+}
+
+.flow>*+* {
+  margin-block-start: var(--flow-space, 1.5em);
+}
+
+/* Fluid type sizing.
+@link https://utopia.fyi/type/calculator?c=320,17,1.2,1240,21,1.333,4,1,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 
+*/
+
+:root {
+  --step--1: clamp(0.8854rem, 0.8509rem + 0.1725vw, 0.9846rem);
+  --step-0: clamp(1.0625rem, 0.9755rem + 0.4348vw, 1.3125rem);
+  --step-1: clamp(1.275rem, 1.1099rem + 0.8253vw, 1.7496rem);
+  --step-2: clamp(1.53rem, 1.251rem + 1.3951vw, 2.3322rem);
+  --step-3: clamp(1.836rem, 1.3933rem + 2.2135vw, 3.1088rem);
+  --step-4: clamp(2.2032rem, 1.5281rem + 3.3753vw, 4.144rem);
+  --opentype-case: off;
+  --opentype-sinf: off;
+}
+
+body {
+  margin-inline: 3vw;
+  line-height: 1.5;
+  font-family: "Latin", ui-sans-serif, sans-serif;
+  font-size: var(--step-0);
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  text-decoration-skip-ink: auto;
+}
+
+/*
+OpenType utility classes
+*/
+
+.case {
+  --opentype-case: on;
+}
+
+.sinf {
+  --opentype-sinf: on;
+}
+
+.dlig {
+  font-variant-ligatures: discretionary-ligatures;
+}
+
+.hlig {
+  font-variant-ligatures: historical-ligatures;
+}
+
+.dlig.hlig {
+  font-variant-ligatures: discretionary-ligatures historical-ligatures;
+}
+
+.pnum {
+  font-variant-numeric: proportional-nums;
+}
+
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+.lnum {
+  font-variant-numeric: lining-nums;
+}
+
+.onum {
+  font-variant-numeric: oldstyle-nums;
+}
+
+.zero {
+  font-variant-numeric: slashed-zero;
+}
+
+.pnum.zero {
+  font-variant-numeric: proportional-nums slashed-zero;
+}
+
+.tnum.zero {
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+.onum.zero {
+  font-variant-numeric: oldstyle-nums slashed-zero;
+}
+
+.lnum.zero {
+  font-variant-numeric: lining-nums slashed-zero;
+}
+
+.tnum.lnum.zero {
+  font-variant-numeric: tabular-nums lining-nums slashed-zero;
+}
+
+.frac {
+  font-variant-numeric: diagonal-fractions;
+}
+
+.afrc {
+  font-variant-numeric: stacked-fractions;
+}
+
+.ordn {
+  font-variant-numeric: ordinal;
+}
+
+.smcp {
+  font-variant-caps: small-caps;
+}
+
+.hist {
+  font-variant-alternates: historical-forms;
+}
+
+* {
+  font-feature-settings: "case" var(--opentype-case, off), "sinf" var(--opentype-sinf, off);
+}
+
+/*
+Generic helper classes
+*/
+
+.centered {
+  text-align: center;
+  text-wrap: balance;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  --opentype-case: on;
+}
+
+.smallcaps {
+  font-variant-caps: all-small-caps;
+  font-variant-numeric: proportional-nums;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+  font-variant-numeric: lining-nums;
+}
+
+h1 {
+  font-size: var(--step-4);
+  font-variant-ligatures: discretionary-ligatures;
+}
+
+h1.uppercase {
+  font-variant-caps: titling-caps;
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+h3 {
+  font-size: var(--step-1);
+}
+
+.flow {
+  max-inline-size: calc(36 * var(--step-0));
+  margin-inline: auto;
+  margin-block: 3em;
+}
+
+.flow h1 {
+  margin-inline: calc(-1 * (48vw - 50%));
+  /* create negative margins to expand heading outside of prose block */
+}
+
+.flow h1+p {
+  --flow-space: 3em;
+}
+
+.flow h2+p,
+.flow h3+p {
+  --flow-space: 0.75em;
+}
+
+.prose {
+  text-wrap: pretty;
+  font-variant-numeric: proportional-nums;
+}
+
+blockquote {
+  margin-inline-start: 1lh;
+}
+
+code {
+  font-family: "Inconsolata", ui-monospace, monospace;
+}
+
+@supports (font-variant-position: sub) {
+
+  sub,
+  .sub {
+    vertical-align: baseline;
+    font-size: 100%;
+    line-height: inherit;
+    font-variant-position: sub;
+  }
+}
+
+@supports (font-variant-position: super) {
+
+  sup,
+  .sup {
+    vertical-align: baseline;
+    font-size: 100%;
+    line-height: inherit;
+    font-variant-position: super;
+  }
+}
+
+/* “Generic English ‘style’” */
+:lang(en)>* {
+  quotes: '“' '”' '‘' '’';
+}
+
+q::before {
+  content: open-quote
+}
+
+q::after {
+  content: close-quote
+}
+
+/*
+Hyphenation
+Remember to set lang
+*/
+
+.prose {
+  -webkit-hyphens: auto;
+  -webkit-hyphenate-limit-before: 4;
+  -webkit-hyphenate-limit-after: 3;
+  -webkit-hyphenate-limit-lines: 2;
+
+  hyphens: auto;
+  hyphenate-limit-chars: 7 4 3;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-zone: 8%;
+  hyphenate-limit-last: always;
+}
+
+.prose pre,
+.prose code,
+.prose var,
+.prose samp,
+.prose kbd,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
+
+/*
+Dark mode and inverted text
+*/
+
+:root {
+  --vf-grad: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --vf-grad: -100;
+    /* Grade is font-specific. */
+  }
+}
+
+.inverted {
+  --vf-grad: -100;
+}
+
+* {
+  font-variation-settings: "GRAD" var(--vf-grad, 0);
+}

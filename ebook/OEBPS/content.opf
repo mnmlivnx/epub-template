@@ -37,6 +37,7 @@
     <item href="fonts/latin-bolditalic.woff2" id="latin-bolditalic" media-type="font/woff2" />
     <item href="fonts/devanagari-regular.woff2" id="devanagari-regular" media-type="font/woff2" />
     <item href="fonts/devanagari-bold.woff2" id="devanagari-bold" media-type="font/woff2" />
+    <item href="fonts/inconsolata.woff2" id="inconsolata" media-type="font/woff2" />
     <item href="text/cover.xhtml" id="cover" media-type="application/xhtml+xml" />
     <item href="text/frontmatter.xhtml" id="frontmatter" media-type="application/xhtml+xml" />
     <item href="text/toc.xhtml" id="toc" media-type="application/xhtml+xml" />
