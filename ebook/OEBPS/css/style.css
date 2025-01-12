@@ -131,6 +131,7 @@ body {
   font-optical-sizing: auto;
   font-kerning: normal;
   text-decoration-skip-ink: auto;
+  text-rendering: optimizeLegibility;
 }
 
 /*
@@ -246,6 +247,8 @@ h3,
 h4 {
   line-height: 1.1;
   font-variant-numeric: lining-nums;
+  overflow-wrap: break-word;
+  text-wrap: balance;
 }
 
 h1 {
@@ -387,4 +390,9 @@ Dark mode and inverted text
 
 * {
   font-variation-settings: "GRAD" var(--vf-grad, 0);
+}
+
+.dn {
+  /* Sanskrit text in Devanagari. */
+  font-family: "Devanagari", ui-serif, serif;
 }
